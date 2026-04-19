@@ -8,9 +8,9 @@ import org.hibernate.resource.transaction.spi.TransactionStatus;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Entity
-@Getter
 @Setter
+@Getter
+@Entity
 public class Transaction {
 
     @Id
@@ -23,10 +23,17 @@ public class Transaction {
     @Column(nullable = false)
     private LocalDateTime timestamp;
 
+    @Getter
     @Enumerated(EnumType.STRING)
     private TransactionStatus status;
 
     @ManyToOne
     @JoinColumn(name = "account_id")
     private Account account;
+
+    public void setStatus(TransactionStatus status) {
+        this.status = status; }
+
+    public void setStatus(com.financial.wallet.model.TransactionStatus transactionStatus) {
+    }
 }

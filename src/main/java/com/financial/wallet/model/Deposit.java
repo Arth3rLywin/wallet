@@ -7,8 +7,12 @@ import lombok.Setter;
 @Entity
 public class Deposit extends Transaction {
 
-    @Getter
-    @Setter
     private String source;
 
+    public String getSource (){
+        return source;
+    }
+    public void setSource (String source) {
+        this.source = source;
+    }
 }

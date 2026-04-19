@@ -1,17 +1,15 @@
 package com.financial.wallet.model;
 
 import jakarta.persistence.*;
-import jakarta.transaction.Transaction;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-@Entity
-@Getter
 @Setter
+@Getter
+@Entity
 public class Account {
 
     @Id
@@ -33,4 +31,7 @@ public class Account {
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Transaction> transactions;
+
+    // --- Getters and Setters ---
+
 }
